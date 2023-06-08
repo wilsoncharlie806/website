@@ -1,0 +1,241 @@
+form{
+  width: 97%;
+  background: #111;
+  position: relative;
+}
+
+.row {
+  display: flex;
+}
+
+.row .icon {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.row .icon i {
+  font-size: 20px;
+}
+
+.input-group{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.input-group label{
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 5px;
+  /* flex-basis: 28%; */
+}
+.input-group input, .input-group textarea{
+  flex: 1;
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  resize: vertical;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+::placeholder{
+  font-size: 14px;
+}
+
+.input-group span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.green-button {
+  padding: 1em 2em;
+  float: right;
+  margin-right: 20px;
+  background-color: rgb(3, 219, 32);
+  color: #fff;
+  border-radius: 5px;
+  border:none;
+  cursor: pointer;
+  position:relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgb(3, 219, 32, 0.8);  
+}
+
+.green-button:before, 
+.green-button:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left:-20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+} 
+
+.green-button:before,
+.green-button:after
+ {
+  display: none;
+  background-image: 
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, rgb(3, 219, 32) 20%, transparent 30%),
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%),
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, rgb(3, 219, 32) 15%, transparent 20%),
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%),
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%),
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%),
+    radial-gradient(circle, rgb(3, 219, 32) 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+}
+
+.green-button:before {
+  top: -75%;
+}
+.green-button:after {
+  bottom: -75%;
+}
+
+.green-button:active {
+  transform: scale(0.9);
+  background-color: rgb(3, 219, 32, 0.8);
+  box-shadow: 0 2px 25px rgba(3, 219, 32, 0.2);
+}
+
+.green-button.animate:before {
+  display: block;
+  animation: greentopBubbles ease-in-out 0.75s forwards;
+}
+
+.green-button.animate:after {
+  display: block;
+  animation: greenbottomBubbles ease-in-out 0.75s forwards;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.fade {
+  animation: fade 1s 2s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#alertsuccess{
+  display: block;
+  z-index: 1;
+  background: #D4EDDA;
+  font-size: 18px;
+  padding: 20px 40px;
+  min-width: 420px;
+  position: fixed;
+  right: 0;
+  top: 10px;
+  border-left: 8px solid #3AD66E;
+  border-radius: 4px;
+}
+
+#alerterror{
+  display: none;
+  z-index: 1;
+  background: #FFF3CD;
+  font-size: 18px;
+  padding: 20px 40px;
+  min-width: 420px;
+  position: fixed;
+  right: 0;
+  top: 10px;
+  border-left: 8px solid #FFA502;
+  border-radius: 4px;
+}
+
+.fill-color {
+  color: #b5b5b5bb;
+}
+
+.check-color {
+  color: #3AD66E;
+  /* color: #1882f8; */
+}
+
+.success-color {
+  color: #00da1d;
+}
+
+.error-color {
+  color: #f81818;
+}
+
+@media (max-width: 768px) {
+  form .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form .row1 {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .green-button {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 425px) {
+  form{
+    width: 89%;
+  }
+}
